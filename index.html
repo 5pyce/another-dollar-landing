@@ -46,10 +46,23 @@
       gap:14px;
       min-width:240px;
     }
-    .brand img{
-      height:44px;
-      width:auto;
-      display:block;
+    .brand{
+  width:100%;
+  justify-content:center;
+}
+.brand img{
+  height:110px; /* BIG */
+  width:auto;
+  max-width:100%;
+  display:block;
+}
+.top{
+  flex-direction:column; /* logo on its own row */
+  align-items:center;
+}
+.nav{
+  justify-content:center; /* menu centered under logo */
+}
     }
     .nav{
       display:flex;
