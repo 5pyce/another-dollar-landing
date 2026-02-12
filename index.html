@@ -1,97 +1,483 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>Another Dollar — Founding Era</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{
-font-family: Arial, sans-serif;
-background:#000;
-color:#fff;
-margin:0;
-padding:0;
-}
-.container{
-max-width:900px;
-margin:auto;
-padding:40px 20px;
-}
-h1{
-font-size:48px;
-margin-bottom:10px;
-}
-.button{
-display:inline-block;
-padding:15px 25px;
-margin:10px 10px 10px 0;
-background:#fff;
-color:#000;
-text-decoration:none;
-font-weight:bold;
-border-radius:8px;
-}
-.section{
-margin-top:50px;
-}
-.card{
-background:#111;
-padding:20px;
-margin-top:15px;
-border-radius:10px;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Another Dollar — Founding Era</title>
+
+ 
+  <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#0b0b0b;
+      --muted:#5c5c5c;
+      --muted2:#8a8a8a;
+      --line:#e7e7e7;
+      --soft:#f4f4f4;
+      --gold:#c9a227;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:var(--bg);
+      color:var(--ink);
+    }
+    a{color:inherit}
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:28px 18px 60px;
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      border-bottom:1px solid var(--line);
+      padding-bottom:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:240px;
+    }
+    .brand img{
+      height:44px;
+      width:auto;
+      display:block;
+    }
+    .nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{
+      border-color:var(--line);
+      background:#fff;
+    }
+
+    .hero{
+      padding:26px 0 10px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:18px;
+      align-items:start;
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.4px;
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:99px;background:var(--gold);display:inline-block;
+    }
+    h1{
+      margin:12px 0 10px;
+      font-size:54px;
+      line-height:1.02;
+      letter-spacing:-1px;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.45;
+      max-width:720px;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 16px;
+      border-radius:16px;
+      text-decoration:none;
+      font-weight:900;
+      border:1px solid var(--ink);
+      transition:transform .08s ease, opacity .08s ease;
+      user-select:none;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btnPrimary{background:var(--ink); color:#fff;}
+    .btnGhost{background:#fff; color:var(--ink); border-color:var(--ink);}
+    .fine{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted2);
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:#fff;
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:5px;
+      background:var(--gold);
+    }
+    .cardTitle{
+      margin:0 0 8px;
+      font-weight:900;
+      font-size:16px;
+    }
+    .cardText{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    /* Beehiiv area */
+    .beehiivWrap{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:linear-gradient(180deg,#fff, #fbfbfb);
+    }
+    .beehiivLabel{
+      font-weight:900;
+      font-size:13px;
+      margin:0 0 8px;
+    }
+    .beehiivHint{
+      margin:0 0 10px;
+      color:var(--muted2);
+      font-size:13px;
+    }
+    .embedBox{
+      border:1px dashed #d9d9d9;
+      border-radius:18px;
+      padding:12px;
+      background:var(--soft);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .embedBox iframe{
+      width:100%;
+      border:0;
+      min-height:120px;
+      border-radius:14px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width:900px){
+      .grid3{grid-template-columns:1fr}
+    }
+    .section{
+      margin-top:22px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:1000;
+      letter-spacing:-.2px;
+    }
+    ul{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .pillRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    .bigBox{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:18px;
+      background:#fff;
+    }
+    .bigBox strong{color:var(--ink)}
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width:900px){
+      .split{grid-template-columns:1fr}
+    }
+    .muted{color:var(--muted)}
+    .foot{
+      margin-top:26px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted2);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<div class="container">
+    <!-- TOP -->
+    <div class="top">
+      <div class="brand">
+        <!-- Put your logo file in the repo as /logo.png (same folder as index.html) -->
+        <img src="logo.png" alt="5pyce logo" />
+      </div>
 
-<h1>ANOTHER DOLLAR</h1>
-<h2>FOUNDING ERA</h2>
+      <div class="nav">
+        <a href="#founding">Founding</a>
+        <a href="#perks">Perks</a>
+        <a href="#patron">Patron</a>
+        <a href="#mission">Mission</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
 
-<p>
-Be part of building the next independent Australian music empire.
-This is ground floor access.
-</p>
+    <!-- HERO + BEEHIIV (TOP OF PAGE) -->
+    <div class="hero">
+      <div>
+        <div class="kicker"><span class="dot"></span> 5PYCE • FOUNDING ERA</div>
+        <h1>ANOTHER DOLLAR</h1>
+        <p class="sub">
+          From the streets to global stages. Built independent. Owned by the movement.
+          <br><strong>I’m not rich. I’m expensive.</strong> Respect is earned.
+        </p>
 
-<a class="button" href="#" target="_0xc15a9884015b478a696bfdcfe43491e77e641f3b">
-Buy Founding NFT (Coming Soon)
-</a>
+        <div class="pillRow">
+          <div class="pill">66 ONLY • EVER</div>
+          <div class="pill">$40 AUD ENTRY</div>
+          <div class="pill">Music + Access + Ecosystem</div>
+        </div>
 
-<a class="button" href="mailto:itsspyce@gmail.com">
-1/1 Founding Patron — Enquire
-</a>
+        <div class="ctaRow">
+          <!-- Replace this link once you have your OpenSea collection/item link -->
+          <a class="btn btnPrimary" href="https://opensea.io" target="_blank" rel="noreferrer">BUY / VIEW DROP</a>
 
-<div class="section">
-<h2>What This Is</h2>
-<div class="card">
-Early supporter digital collectible.<br>
-Private community access.<br>
-Future drops priority.<br>
-Founding Era status forever.
-</div>
-</div>
+          <a class="btn btnGhost"
+             href="mailto:Itsspyce@gmail.com?subject=Founding%20Patron%201%2F1%20-%20Another%20Dollar">
+             FOUNDING PATRON — ENQUIRE
+          </a>
+        </div>
 
-<div class="section">
-<h2>Founding Patron 1/1</h2>
-<div class="card">
-Tour naming rights.<br>
-Custom song written for you.<br>
-Film clip appearance.<br>
-VIP lifetime Australian show entry.
-</div>
-</div>
+        <div class="fine">
+          New here? You don’t need crypto knowledge. If you can buy online, you can join — we’ll guide you.
+        </div>
+      </div>
 
-<div class="section">
-<h2>Why This Exists</h2>
-<div class="card">
-Cut out industry middlemen.<br>
-Build community-owned music growth.<br>
-Keep profits with creators and supporters.
-</div><script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/c7ebb8f2-d193-438c-ab66-6bddada8ce4d" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 291px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
-</div>
+      <div class="beehiivWrap" id="founding">
+        <p class="beehiivLabel">Join the Founding List</p>
+        <p class="beehiivHint">Get early access + first rights. This is where the movement starts.</p>
 
-</div>
+        <div class="embedBox">
+          <strong>PASTE YOUR BEEHIIV EMBED FORM CODE HERE</strong><br><br>
+          In Beehiiv: Subscribe Forms → Embedded → Copy code (usually an iframe) → paste below.
+          <br><br>
 
+          <!-- ✅ Paste Beehiiv iframe/embed here. Example:
+          <iframe src="https://embeds.beehiiv.com/xxxx?slim=true" data-test-id="beehiiv-embed" height="120"></iframe>
+          -->
+        </div>
+
+        <div class="fine">Privacy: no spam. You’ll only get drop / access updates.</div>
+      </div>
+    </div>
+
+    <!-- WHAT THIS IS -->
+    <div class="section">
+      <div class="bigBox">
+        <h2>What this is</h2>
+        <div class="muted">
+          This isn’t “just an NFT”. This is founding access to the 5pyce rise.
+          The industry eats artists. We cut the middlemen and keep profit with creators and supporters.
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <p class="cardTitle">Founding Status</p>
+          <p class="cardText">Proof you were early. Permanent “Founding Era” holder recognition.</p>
+        </div>
+        <div class="card">
+          <p class="cardTitle">Access</p>
+          <p class="cardText">Direct lane + pop-ups + early drops. You’re involved, not watching.</p>
+        </div>
+        <div class="card">
+          <p class="cardTitle">Ecosystem Perks</p>
+          <p class="cardText">Music + events + Illfigah perks. Real-world value, not hype.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERKS -->
+    <div class="section" id="perks">
+      <div class="bigBox">
+        <h2>Founding Holder perks</h2>
+        <div class="muted">
+          Built for normies and day-ones. Entry level, real perks.
+        </div>
+        <ul>
+          <li>Unreleased music + early previews</li>
+          <li>Film clip pop-up opportunities</li>
+          <li>Direct line of contact through social media</li>
+          <li>Discounted events / entries</li>
+          <li>Discounted Illfigah clothing</li>
+          <li>Discounted puppy prices</li>
+          <li>Discounted stud fees</li>
+          <li>Priority access to future drops</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PATRON -->
+    <div class="section" id="patron">
+      <div class="bigBox">
+        <h2>Founding Patron (1 of 1)</h2>
+        <div class="muted">
+          Private acquisition. We don’t list this for clout — we list it when it’s the right person.
+          Target: <strong>$100,000 AUD</strong>.
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <p class="cardTitle">Patron receives</p>
+            <ul>
+              <li>Australian tour naming rights</li>
+              <li>A song written for them</li>
+              <li>Feature in an official film clip</li>
+              <li>Lifetime VIP entry to 5pyce AU headline shows</li>
+              <li>Direct involvement in early era growth</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <p class="cardTitle">How it closes</p>
+            <p class="cardText">
+              This starts private. If multiple parties are serious, we go to auction. Scarcity is real:
+              one slot, one patron, one legacy position.
+            </p>
+          </div>
+        </div>
+
+        <div class="ctaRow" style="margin-top:14px;">
+          <a class="btn btnGhost"
+             href="mailto:Itsspyce@gmail.com?subject=Founding%20Patron%201%2F1%20-%20Another%20Dollar">
+             ENQUIRE ABOUT THE 1/1
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSION / PLAN (YES, WE NEED THIS) -->
+    <div class="section" id="mission">
+      <div class="bigBox">
+        <h2>Mission + plan</h2>
+        <div class="muted">
+          Yes — we need this section. It builds trust fast. Keep it short and direct.
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <p class="cardTitle">Mission</p>
+            <p class="cardText">
+              Build the first global independent Australian music empire — without labels eating the margins.
+              Keep profits with creators and the community that backed it early.
+            </p>
+          </div>
+
+          <div class="card">
+            <p class="cardTitle">Plan</p>
+            <ul>
+              <li>Drop 1: Founding Era (66)</li>
+              <li>Drop 2: Holder unlocks + bigger perks</li>
+              <li>Shows + events + merch integration</li>
+              <li>Global expansion + media presence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section" id="faq">
+      <div class="bigBox">
+        <h2>FAQ</h2>
+        <div class="split">
+          <div class="card">
+            <p class="cardTitle">Do I need crypto knowledge?</p>
+            <p class="cardText">No. If you can buy online, you can join. We guide you through it.</p>
+          </div>
+          <div class="card">
+            <p class="cardTitle">How many are there?</p>
+            <p class="cardText"><strong>66</strong> founding supporters. Once they’re gone, that era is closed.</p>
+          </div>
+          <div class="card">
+            <p class="cardTitle">When do perks start?</p>
+            <p class="cardText">As soon as the drop is live and holders are verified. You’ll get instructions by email.</p>
+          </div>
+          <div class="card">
+            <p class="cardTitle">Where do I buy?</p>
+            <p class="cardText">The “BUY / VIEW DROP” button takes you to the official listing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div>© 5pyce — Another Dollar • Founding Era</div>
+      <div>Contact: <a href="mailto:Itsspyce@gmail.com">Itsspyce@gmail.com</a></div>
+    </div>
+
+  </div>
 </body>
 </html>
